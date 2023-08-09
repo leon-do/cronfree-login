@@ -13,7 +13,7 @@ export default function Home() {
     supabase.auth.getSession().then(({ data }) => {
       data?.session ? (window.location.href = "/account") : setIsClient(true);
     });
-  }, []);
+  }, [supabase.auth]);
 
   return (
     <>

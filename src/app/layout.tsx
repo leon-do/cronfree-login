@@ -20,3 +20,6 @@ export default function RootLayout({
     </html>
   )
 }
+
+// https://github.com/vercel/next.js/issues/49373#issuecomment-1565502698
+export const dynamic = 'force-dynamic'
