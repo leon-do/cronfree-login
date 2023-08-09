@@ -22,7 +22,29 @@ export default function Home() {
           <div>
             <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">Login or Sign Up</h2>
           </div>
-          {isClient ? <Auth supabaseClient={supabase} view="magic_link" appearance={{ theme: ThemeSupa }} theme="light" showLinks={false} providers={[]} redirectTo={`${window.location.href}auth/callback`} /> : ""}
+          {isClient ? (
+            <Auth
+              supabaseClient={supabase}
+              view="magic_link"
+              appearance={{
+                theme: ThemeSupa,
+                variables: {
+                  default: {
+                    colors: {
+                      brand: "#ea580c",
+                      brandAccent: "darkorange",
+                    },
+                  },
+                },
+              }}
+              theme="light"
+              showLinks={false}
+              providers={[]}
+              redirectTo={`${window.location.href}auth/callback`}
+            />
+          ) : (
+            ""
+          )}
         </div>
       </div>
     </>

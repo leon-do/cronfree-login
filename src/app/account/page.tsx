@@ -12,7 +12,7 @@ export default async function Account() {
   return (
     <>
       <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
-        <div className="mb-10 sm:flex sm:items-baseline sm:justify-between">
+        <div className="mb-10 flex items-baseline justify-between">
           <h2 className="text-2xl font-bold tracking-tight text-gray-900">Account</h2>
           <Signout />
         </div>
@@ -40,7 +40,7 @@ export default async function Account() {
             </div>
             <div className="mt-5">
               <Link href="https://google.com">
-                <button type="button" className="inline-flex items-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500">
+                <button type="button" className="inline-flex items-center rounded-md bg-orange-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-orange-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500">
                   Connect to Zapier
                 </button>
               </Link>
@@ -57,7 +57,7 @@ export default async function Account() {
             </div>
             <div className="mt-5">
               <Link href={session.user.user_metadata.total > 1 ? "https://google.com" : "https://facebook.com"}>
-                <button type="button" className="inline-flex items-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500">
+                <button type="button" className="inline-flex items-center rounded-md bg-orange-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-orange-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500">
                   {session.user.user_metadata.total > 1 ? "Manage" : "Upgrade"}
                 </button>
               </Link>
