@@ -13,6 +13,11 @@ export default async function Account() {
   const account = await getAccount(session.user.email);
   if (!account) redirect("/");
 
+  // https://dashboard.stripe.com/payment-links
+  const stripePayment = (process.env.NEXT_PUBLIC_STRIPE_PAYMENT_URL as string) + account.email;
+  // https://dashboard.stripe.com/settings/billing/portal
+  const stripePortal = (process.env.NEXT_PUBLIC_STRIPE_PORTAL_URL as string) + account.email;
+
   return (
     <>
       <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
@@ -65,7 +70,7 @@ export default async function Account() {
               <p className="m-3">Upgrade or manage your subscription</p>
             </div>
             <div className="m-3">
-              <Link href={account.total > 1 ? "https://google.com" : "https://facebook.com"}>
+              <Link href={account.total > 1 ? stripePortal : stripePayment}>
                 <button type="button" className="inline-flex items-center rounded-md bg-orange-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-orange-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500">
                   {account.total > 1 ? "Manage Subscription" : "Upgrade Account"}
                 </button>
