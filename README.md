@@ -14,6 +14,7 @@ STRIPE_WEBHOOK_SIGNING_SECRET=whsec_Wv46sF5cjzpDEcuC
 NEXT_PUBLIC_STRIPE_PAYMENT_URL=https://buy.stripe.com/test_3cs4j2h2xgcu26Q000?prefilled_email=
 NEXT_PUBLIC_STRIPE_PORTAL_URL=https://billing.stripe.com/p/login/4gw5lr01K511ebe000?prefilled_email=
 
+CRON_API_KEY=C3sTg4yO3q
 ```
 
 ## Start
@@ -23,12 +24,14 @@ npm install
 npm run dev
 ```
 
-## Supabase Query
+## Supabase
 
 ```sql
 create view public.users as select * from auth.users;
 revoke all on public.users from anon, authenticated;
 ```
+
+![](https://github.com/leon-do/3d-printed-glasses/assets/19412160/284d8b6a-a2c2-4f2e-85c3-ed24b82c2599)
 
 ## Stripe
 
@@ -37,3 +40,14 @@ Payment: https://dashboard.stripe.com/payment-links
 Portal: https://dashboard.stripe.com/settings/billing/portal
 
 Webhook: https://dashboard.stripe.com/test/webhooks/create?events=customer.subscription.created%2Ccustomer.subscription.updated
+
+![](https://github.com/leon-do/3d-printed-glasses/assets/19412160/25b1b8d2-8462-4e0b-ace3-7249509122f2)
+
+![](https://github.com/leon-do/3d-printed-glasses/assets/19412160/1c6c25aa-3df3-4e86-98ea-66dc224c3526)
+
+
+## Cron
+
+https://console.cron-job.org/settings
+
+![](https://github.com/leon-do/3d-printed-glasses/assets/19412160/bcbe7cbd-a5fe-4149-805c-8c3e7b9342db)
