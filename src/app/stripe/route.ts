@@ -45,7 +45,7 @@ export async function POST(req: NextRequest) {
 async function upgradeSubscription(event: any): Promise<void> {
   try {
     const customer: any = await stripe.customers.retrieve(event.data.object.customer);
-    const { error } = await supabase.from("Accounts").update({ total: 5 }).eq("email", customer.email);
+    const { error } = await supabase.from("account").update({ total: 5 }).eq("email", customer.email);
     if (error) throw new Error(error.message);
   } catch (error) {
     throw new Error(`Error creating subscription ${event.data.object.customer}`);
@@ -55,7 +55,7 @@ async function upgradeSubscription(event: any): Promise<void> {
 async function downgradeSubscription(event: any): Promise<void> {
   try {
     const customer: any = await stripe.customers.retrieve(event.data.object.customer);
-    const { error } = await supabase.from("Accounts").update({ total: 1 }).eq("email", customer.email);
+    const { error } = await supabase.from("account").update({ total: 1 }).eq("email", customer.email);
     if (error) throw new Error(error.message);
   } catch (error) {
     throw new Error(`Error deleting subscription ${event.data.object.customer}`);

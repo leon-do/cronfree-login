@@ -6,7 +6,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Schedule Plus",
-  description: "Schedule Plus is a Zapier app used for recurring tasks",
+  description: "Schedule Plus is a Zapier app used for recurring tasks. Trigger an action every minute, hour, day, week, month",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

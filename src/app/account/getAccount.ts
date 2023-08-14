@@ -17,7 +17,7 @@ export default async function getAccount(email: string): Promise<Account | null>
   });
 
   // check if the user has an account
-  const user = await supabase.from("Accounts").select("*").eq("email", email);
+  const user = await supabase.from("account").select("*").eq("email", email);
   if (user.error) return null;
   if (user.data && user.data.length == 1) return user.data[0];
 
@@ -28,7 +28,7 @@ export default async function getAccount(email: string): Promise<Account | null>
     usage: 0,
     total: 1,
   };
-  const { error } = await supabase.from("Accounts").insert(account);
+  const { error } = await supabase.from("account").insert(account);
   if (error) return null;
   return account;
 }

@@ -29,6 +29,20 @@ npm run dev
 ```sql
 create view public.users as select * from auth.users;
 revoke all on public.users from anon, authenticated;
+
+CREATE TABLE public.account (
+  email VARCHAR PRIMARY KEY,
+  license_key VARCHAR DEFAULT uuid_generate_v4(),
+  usage INTEGER DEFAULT 0,
+  total INTEGER DEFAULT 1
+);
+ALTER TABLE public.account ENABLE ROW LEVEL SECURITY;
+
+CREATE TABLE public.cron (
+    job_id VARCHAR  PRIMARY KEY,
+    hook_url VARCHAR UNIQUE
+);
+ALTER TABLE public.cron ENABLE ROW LEVEL SECURITY;
 ```
 
 ![](https://github.com/leon-do/3d-printed-glasses/assets/19412160/284d8b6a-a2c2-4f2e-85c3-ed24b82c2599)
@@ -44,7 +58,6 @@ Webhook: https://dashboard.stripe.com/test/webhooks/create?events=customer.subsc
 ![](https://github.com/leon-do/3d-printed-glasses/assets/19412160/25b1b8d2-8462-4e0b-ace3-7249509122f2)
 
 ![](https://github.com/leon-do/3d-printed-glasses/assets/19412160/1c6c25aa-3df3-4e86-98ea-66dc224c3526)
-
 
 ## Cron
 
