@@ -11,12 +11,16 @@ interface Cron {
   wdays: number[];
 }
 
-const supabase = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL as string, process.env.SUPABASE_SERVICE_ROLE as string, {
-  auth: {
-    autoRefreshToken: false,
-    persistSession: false,
-  },
-});
+const supabase = createClient(
+  process.env.NEXT_PUBLIC_SUPABASE_URL as string,
+  process.env.SUPABASE_SERVICE_ROLE as string,
+  {
+    auth: {
+      autoRefreshToken: false,
+      persistSession: false,
+    },
+  }
+);
 
 // https://docs.cron-job.org/rest-api.html#creating-a-cron-job
 export default async function createCron(cron: Cron): Promise<number> {
@@ -42,10 +46,14 @@ export default async function createCron(cron: Cron): Promise<number> {
     Authorization: `Bearer ${process.env.CRON_API_KEY as string}`,
   };
   // create cron job
-  const response = await axios.put("https://api.cron-job.org/jobs", data, { headers });
+  const response = await axios.put("https://api.cron-job.org/jobs", data, {
+    headers,
+  });
 
   // save cron job to table
-  await supabase.from("cron").insert({ hook_url: cron.hookUrl, job_id: response.data.jobId });
+  await supabase
+    .from("cron")
+    .insert({ hook_url: cron.hookUrl, job_id: response.data.jobId });
 
   return response.data.jobId;
 }

@@ -8,13 +8,19 @@ interface Account {
   total: number;
 }
 
-export default async function getAccount(email: string): Promise<Account | null> {
-  const supabase = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL as string, process.env.SUPABASE_SERVICE_ROLE as string, {
-    auth: {
-      autoRefreshToken: false,
-      persistSession: false,
-    },
-  });
+export default async function getAccount(
+  email: string
+): Promise<Account | null> {
+  const supabase = createClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL as string,
+    process.env.SUPABASE_SERVICE_ROLE as string,
+    {
+      auth: {
+        autoRefreshToken: false,
+        persistSession: false,
+      },
+    }
+  );
 
   // check if the user has an account
   const user = await supabase.from("account").select("*").eq("email", email);
