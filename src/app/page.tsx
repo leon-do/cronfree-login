@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import { Auth } from "@supabase/auth-ui-react";
 import { ThemeSupa } from "@supabase/auth-ui-shared";
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
@@ -18,33 +19,38 @@ export default function Home() {
   return (
     <>
       {isClient ? (
-        <div className="flex min-h-full items-center justify-center px-4 py-12 sm:px-6 lg:px-8">
-          <div className="w-full max-w-sm space-y-10">
-            <div>
-              <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
-                Login or Sign Up
-              </h2>
-            </div>
+        <div className="h-[80vh]">
+          <div className="flex min-h-full items-center justify-center px-4 py-12 sm:px-6 lg:px-8">
+            <div className="w-full max-w-sm space-y-10">
+              <div className="flex justify-center">
+                <Image src="/icon.svg" alt="logo" width="50" height="50" />
+              </div>
+              <div>
+                <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
+                  Login or Sign Up
+                </h2>
+              </div>
 
-            <Auth
-              supabaseClient={supabase}
-              view="magic_link"
-              appearance={{
-                theme: ThemeSupa,
-                variables: {
-                  default: {
-                    colors: {
-                      brand: "#ea580c",
-                      brandAccent: "darkorange",
+              <Auth
+                supabaseClient={supabase}
+                view="magic_link"
+                appearance={{
+                  theme: ThemeSupa,
+                  variables: {
+                    default: {
+                      colors: {
+                        brand: "#ea580c",
+                        brandAccent: "darkorange",
+                      },
                     },
                   },
-                },
-              }}
-              theme="light"
-              showLinks={false}
-              providers={[]}
-              redirectTo={`${window.location.href}auth/callback`}
-            />
+                }}
+                theme="light"
+                showLinks={false}
+                providers={[]}
+                redirectTo={`${window.location.href}auth/callback`}
+              />
+            </div>
           </div>
         </div>
       ) : (
