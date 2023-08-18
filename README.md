@@ -40,7 +40,8 @@ ALTER TABLE public.account ENABLE ROW LEVEL SECURITY;
 
 CREATE TABLE public.cron (
     job_id VARCHAR  PRIMARY KEY,
-    hook_url VARCHAR UNIQUE
+    hook_url VARCHAR UNIQUE,
+    email VARCHAR UNIQUE
 );
 ALTER TABLE public.cron ENABLE ROW LEVEL SECURITY;
 ```
