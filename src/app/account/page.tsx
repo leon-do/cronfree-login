@@ -67,7 +67,7 @@ export default async function Account() {
               </p>
             </div>
             <div className="m-3">
-              <Link href="https://zapier.com/apps/schedule-plus/integrations" target="_blank">
+              <Link href="https://zapier.com/developer/public-invite/189424/7d746e1121713e0895f27c240d43e186/" target="_blank">
                 <button
                   type="button"
                   className="inline-flex items-center rounded-md bg-orange-600 px-3 py-2 text-m font-semibold text-white shadow-sm hover:bg-orange-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500"
