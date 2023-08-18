@@ -47,6 +47,8 @@ ALTER TABLE public.cron ENABLE ROW LEVEL SECURITY;
 
 ![](https://github.com/leon-do/3d-printed-glasses/assets/19412160/284d8b6a-a2c2-4f2e-85c3-ed24b82c2599)
 
+![](https://github.com/leon-do/web3hook/assets/19412160/a452ebd0-7078-47aa-bfee-e72fda1f586c)
+
 ## Stripe
 
 Payment: https://dashboard.stripe.com/payment-links
@@ -54,6 +56,8 @@ Payment: https://dashboard.stripe.com/payment-links
 Portal: https://dashboard.stripe.com/settings/billing/portal
 
 Webhook: https://dashboard.stripe.com/test/webhooks/create?events=customer.subscription.created%2Ccustomer.subscription.updated
+
+  - `https://scheduleplus.xyz/stripe`
 
 ![](https://github.com/leon-do/3d-printed-glasses/assets/19412160/25b1b8d2-8462-4e0b-ace3-7249509122f2)
 

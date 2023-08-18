@@ -2,6 +2,7 @@ import axios from "axios";
 import { createClient } from "@supabase/supabase-js";
 
 interface Cron {
+  license_key: string;
   hookUrl: string;
   timezone: string;
   hours: number[];
@@ -45,15 +46,32 @@ export default async function createCron(cron: Cron): Promise<number> {
     "Content-Type": "application/json",
     Authorization: `Bearer ${process.env.CRON_API_KEY as string}`,
   };
+
   // create cron job
   const response = await axios.put("https://api.cron-job.org/jobs", data, {
     headers,
   });
 
+  // get email from license_key
+  const account = await supabase
+    .from("account")
+    .select("*")
+    .eq("license_key", cron.license_key);
+  if (account.error || account.data.length === 0)
+    throw new Error("License Key Not Found");
+
   // save cron job to table
+  await supabase.from("cron").insert({
+    hook_url: cron.hookUrl,
+    job_id: response.data.jobId,
+    email: account.data[0].email,
+  });
+
+  // increase account usage
   await supabase
-    .from("cron")
-    .insert({ hook_url: cron.hookUrl, job_id: response.data.jobId });
+    .from("account")
+    .update({ usage: account.data[0].usage + 1 })
+    .eq("email", account.data[0].email);
 
   return response.data.jobId;
 }

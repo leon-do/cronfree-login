@@ -15,9 +15,9 @@ const supabase = createClient(
 
 export async function POST(req: NextRequest) {
   try {
-    // get body
     const body = await req.json();
     console.log("/zapier/unschedule", body);
+
     if (!body.license_key)
       return NextResponse.json([{ id: false }], {
         status: 401,

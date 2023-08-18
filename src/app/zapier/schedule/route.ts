@@ -16,14 +16,15 @@ const supabase = createClient(
 
 export async function POST(req: NextRequest) {
   try {
-    // get body
     const body = await req.json();
     console.log("/zapier/schedule", body);
+
     if (!body.license_key)
       return NextResponse.json([{ id: false }], {
         status: 401,
         statusText: "Unauthorized",
       });
+
     // query supabase for user
     const { data, error } = await supabase
       .from("account")
@@ -34,14 +35,17 @@ export async function POST(req: NextRequest) {
         status: 401,
         statusText: "Unauthorized",
       });
+
     // check if usage > total
     if (data[0].usage > data[0].total)
       return NextResponse.json([{ id: false }], {
         status: 401,
-        statusText: "Usage Exceeded",
+        statusText: "Usage Exceeded. Upgrade to Plan",
       });
+
     // set cron job
     const jobId = await createCron({
+      license_key: body.license_key,
       hookUrl: body.hookUrl,
       timezone: body.timezone,
       hours: body.hours.includes("-1")
@@ -60,7 +64,10 @@ export async function POST(req: NextRequest) {
         ? [-1]
         : Array.from(new Set(body.wdays)).map((item) => Number(item)),
     });
+
+    // send response
     await axios.post(body.hookUrl, { jobId });
+
     return NextResponse.json([{ id: jobId }]);
   } catch (error) {
     // console.error(error);
