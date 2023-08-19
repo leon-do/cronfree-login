@@ -39,6 +39,8 @@ export default async function createCron(cron: Cron): Promise<number> {
         months: cron.months,
         wdays: cron.wdays,
       },
+      requestMethod: 1,
+      body: "status=true",
     },
   };
 
