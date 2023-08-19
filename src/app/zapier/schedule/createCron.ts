@@ -40,7 +40,7 @@ export default async function createCron(cron: Cron): Promise<void> {
         wdays: cron.wdays,
       },
       requestMethod: 1,
-      body: "status=true",
+      body: "success=true",
     },
   };
 
