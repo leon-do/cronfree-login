@@ -68,7 +68,7 @@ export async function POST(req: NextRequest) {
     // send response
     await axios.post(body.hookUrl, { jobId });
 
-    return NextResponse.json({ status: true});
+    return NextResponse.json({ status: true });
   } catch (error) {
     // console.error(error);
     return NextResponse.json(
