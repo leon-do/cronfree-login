@@ -44,7 +44,7 @@ export async function POST(req: NextRequest) {
       });
 
     // set cron job
-    const jobId = await createCron({
+    await createCron({
       license_key: body.license_key,
       hookUrl: body.hookUrl,
       timezone: body.timezone,

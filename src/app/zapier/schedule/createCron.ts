@@ -24,7 +24,7 @@ const supabase = createClient(
 );
 
 // https://docs.cron-job.org/rest-api.html#creating-a-cron-job
-export default async function createCron(cron: Cron): Promise<number> {
+export default async function createCron(cron: Cron): Promise<void> {
   const data = {
     job: {
       url: cron.hookUrl,
@@ -74,6 +74,4 @@ export default async function createCron(cron: Cron): Promise<number> {
     .from("account")
     .update({ usage: account.data[0].usage + 1 })
     .eq("email", account.data[0].email);
-
-  return response.data.jobId;
 }
