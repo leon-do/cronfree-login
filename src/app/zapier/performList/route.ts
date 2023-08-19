@@ -18,7 +18,7 @@ export async function POST(req: NextRequest) {
 
   if (!body.license_key)
     return NextResponse.json(
-      [{ success: false, error: "Unauthorized License Key" }],
+      [{ success: "false", error: "Unauthorized License Key" }],
       {
         status: 401,
       }
@@ -31,17 +31,17 @@ export async function POST(req: NextRequest) {
     .eq("license_key", body.license_key);
 
   if (error || data.length === 0)
-    return NextResponse.json([{ success: false, error: "Unauthorized" }], {
+    return NextResponse.json([{ success: "false", error: "Unauthorized" }], {
       status: 401,
     });
 
   // check if usage >= total
   if (data[0].usage >= data[0].total)
     return NextResponse.json(
-      [{ success: false, error: "Usage Exceeded. Please Upgrade Plan" }],
+      [{ success: "false", error: "Usage Exceeded. Please Upgrade Plan" }],
       {
         status: 401,
       }
     );
-  return NextResponse.json([{ success: true }]);
+  return NextResponse.json([{ success: "true" }]);
 }
