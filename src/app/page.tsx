@@ -39,8 +39,8 @@ export default function Home() {
                   variables: {
                     default: {
                       colors: {
-                        brand: "#ea580c",
-                        brandAccent: "darkorange",
+                        brand: "#f72585",
+                        brandAccent: "#f72585",
                       },
                     },
                   },
