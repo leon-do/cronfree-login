@@ -23,7 +23,7 @@ export default function Home() {
           <div className="flex min-h-full items-center justify-center px-4 py-12 sm:px-6 lg:px-8">
             <div className="w-full max-w-sm space-y-10">
               <div className="flex justify-center">
-                <Image src="/logo.svg" alt="logo" width="100" height="100" />
+                <Image src="/logo.svg" alt="logo" width="120" height="120" />
               </div>
               <div>
                 <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
