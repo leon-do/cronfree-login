@@ -5,9 +5,9 @@ import { Inter } from "next/font/google";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Schedule Plus",
+  title: "Cronfree",
   description:
-    "Schedule Plus is a Zapier app used for recurring tasks. Trigger an action every minute, hour, day, week, month",
+    "Cronfree creates multiple reoccurring tasks with no-code automation. Schedule them at varied timezones and intervals, spanning from minutes to months.",
 };
 
 export default function RootLayout({

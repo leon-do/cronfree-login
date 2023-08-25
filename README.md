@@ -58,7 +58,7 @@ Portal: https://dashboard.stripe.com/settings/billing/portal
 
 Webhook: https://dashboard.stripe.com/test/webhooks/create?events=customer.subscription.created%2Ccustomer.subscription.updated
 
-  - `https://scheduleplus.xyz/stripe`
+  - `https://cronfree.com/stripe`
 
 ![](https://github.com/leon-do/3d-printed-glasses/assets/19412160/25b1b8d2-8462-4e0b-ace3-7249509122f2)
 
