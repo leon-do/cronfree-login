@@ -66,9 +66,9 @@ export async function POST(req: NextRequest) {
     });
 
     // send response
-    await axios.post(body.hookUrl, { status: true });
+    await axios.post(body.hookUrl, { success: true });
 
-    return NextResponse.json({ status: true });
+    return NextResponse.json({ success: true });
   } catch (error) {
     // console.error(error);
     return NextResponse.json(
