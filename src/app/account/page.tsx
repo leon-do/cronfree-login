@@ -62,7 +62,7 @@ export default async function Account() {
             </h3>
             <div className="mt-2 text-m text-gray-500">
               <p className="m-3">
-                Cronfree is a Zapier app used for recurring tasks. Use the
+                Cronfree Time Scheduler is a Zapier app used for recurring tasks. Use the
                 License Key to connect.
               </p>
             </div>
