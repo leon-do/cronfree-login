@@ -68,7 +68,7 @@ export default async function Account() {
             </div>
             <div className="m-3">
               <Link
-                href="https://zapier.com/developer/public-invite/190283/2c45a58bf98982efa68d10a8a1859274/"
+                href="https://zapier.com/apps/cronfree-time-scheduler/integrations"
                 target="_blank"
               >
                 <button
